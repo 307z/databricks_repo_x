@@ -1,0 +1,19 @@
+resources:
+  jobs:
+    MPO:
+      name: MPO
+      tasks:
+        - task_key: FILL_MISSING_PERIOD
+          notebook_task:
+            notebook_path: /Workspace/Users/borwornpanklang@gmail.com/databricks_repo_x/MPO_PIPELINE/FILL_MISSING_PERIOD
+            source: WORKSPACE
+          existing_cluster_id: 0216-153909-jaf5yxsy
+        - task_key: MPO
+          depends_on:
+            - task_key: FILL_MISSING_PERIOD
+          notebook_task:
+            notebook_path: /Workspace/Users/borwornpanklang@gmail.com/databricks_repo_x/MPO_PIPELINE/MPO
+            source: WORKSPACE
+          existing_cluster_id: 0216-153909-jaf5yxsy
+      queue:
+        enabled: true
