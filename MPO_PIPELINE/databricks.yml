@@ -1,0 +1,27 @@
+# Databricks Asset Bundle configuration, more info here: https://docs.databricks.com/en/dev-tools/bundles/settings.html
+bundle:
+  name: "MPO_PIPELINE"
+
+include:
+  - resources/*.yml
+  - resources/*/*.yml
+  
+targets:
+  # The 'dev' target, for development purposes. This target is the default.
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-6571521960919600.0.azuredatabricks.net
+
+  # The 'prod' target, used for production deployment.
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-7405615924392090.10.azuredatabricks.net
+      # We always use /Users/borwornpanklang@gmail.com for all resources to make sure we only have a single copy.
+      root_path: /Users/borwornpanklang@gmail.com/.bundle/${bundle.name}/${bundle.target}
+    run_as:
+      # This runs as borwornpanklang@gmail.com in production. We could also use a service principal here,
+      # see https://docs.databricks.com/dev-tools/bundles/permissions.html.
+      user_name: borwornpanklang@gmail.com
