@@ -4,7 +4,7 @@ bundle:
 
 sync:
   include:
-    - "src/*.py"
+    - "*.py"
     - "resources/*.yml"
 
 include:
