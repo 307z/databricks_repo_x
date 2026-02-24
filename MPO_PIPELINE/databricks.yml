@@ -14,21 +14,20 @@ targets:
     workspace:
       host: https://adb-6571521960919600.0.azuredatabricks.net
 
-  uat:
-    workspace:
-      host: https://adb-7405609314992257.17.azuredatabricks.net
-    run_as:
-      user_name: borwornpanklang@gmail.com
+  # uat:
+  #   workspace:
+  #     host: https://adb-7405609314992257.17.azuredatabricks.net
+  #   run_as:
+  #     user_name: borwornpanklang@gmail.com
 
 
   # The 'prod' target, used for production deployment.
-  # prod:
-  #   mode: production
-  #   workspace:
-  #     host: https://adb-7405615924392090.10.azuredatabricks.net
-  #     # We always use /Users/borwornpanklang@gmail.com for all resources to make sure we only have a single copy.
-  #     root_path: /Users/borwornpanklang@gmail.com/.bundle/${bundle.name}/${bundle.target}
-  #   run_as:
-  #     # This runs as borwornpanklang@gmail.com in production. We could also use a service principal here,
-  #     # see https://docs.databricks.com/dev-tools/bundles/permissions.html.
-  #     user_name: borwornpanklang@gmail.com
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-7405615924392090.10.azuredatabricks.net
+      root_path: /Users/borwornpanklang@gmail.com/.bundle/${bundle.name}/${bundle.target}
+    run_as:
+      # This runs as borwornpanklang@gmail.com in production. We could also use a service principal here,
+      # see https://docs.databricks.com/dev-tools/bundles/permissions.html.
+      user_name: borwornpanklang@gmail.com
